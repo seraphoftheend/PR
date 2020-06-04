@@ -53,8 +53,8 @@ int main() {
     struct curl_slist* recipients = NULL;
 
     curl = curl_easy_init();
-    string to = "<csnow002@gmail.com>";
-    string from = "<csnow002@gmail.com>";
+    string to = "<example@gmail.com>";
+    string from = "<example@gmail.com>";
     string subject = "TestTestTest";
     string message = "This is a test message!";
 
@@ -63,7 +63,7 @@ int main() {
     if (curl) {
         curl_easy_setopt(curl, CURLOPT_URL, "smtp.gmail.com:587");              //URL и порт сервера
         curl_easy_setopt(curl, CURLOPT_USE_SSL, (long)CURLUSESSL_ALL);          //включить шифрование SSL/TLS
-        curl_easy_setopt(curl, CURLOPT_USERNAME, "csnow002@gmail.com");         //email пользователя
+        curl_easy_setopt(curl, CURLOPT_USERNAME, "example@gmail.com");         //email пользователя
         curl_easy_setopt(curl, CURLOPT_PASSWORD, "****************");           //пароль пользователя
         curl_easy_setopt(curl, CURLOPT_MAIL_FROM, from.c_str());                //email отправителя
         recipients = curl_slist_append(recipients, to.c_str());                 //добавить получателя в список
@@ -92,7 +92,7 @@ int main() {
         }
 
         curl_easy_setopt(curl, CURLOPT_URL, "imaps:/imap.gmail.com:993/");
-        curl_easy_setopt(curl, CURLOPT_USERNAME, "csnow002@gmail.com");
+        curl_easy_setopt(curl, CURLOPT_USERNAME, "example@gmail.com");
         curl_easy_setopt(curl, CURLOPT_PASSWORD, "***************");
         curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "EXAMINE INBOX");
         curl_easy_setopt(curl, CURLOPT_USE_SSL, (long)CURLUSESSL_ALL);
@@ -125,7 +125,7 @@ int main() {
 
         curl_easy_reset(curl);
 
-        curl_easy_setopt(curl, CURLOPT_USERNAME, "csnow002@gmail.com");
+        curl_easy_setopt(curl, CURLOPT_USERNAME, "example@gmail.com");
         curl_easy_setopt(curl, CURLOPT_PASSWORD, "**************");
         curl_easy_setopt(curl, CURLOPT_USE_SSL, (long)CURLUSESSL_ALL);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
